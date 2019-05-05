@@ -2,7 +2,7 @@
   <a class="navbar-link">
     Menu
   </a>
-  <div class="navbar-dropdown">
+  <div class="navbar-dropdown is-right">
     {{ $currentPage := . }}
     {{ range site.Menus.main }}
       <a class="navbar-item {{if $currentPage.IsMenuCurrent "main" .}} is-active is-menu-current{{else if ($currentPage.HasMenuCurrent "main" .) }} is-active has-menu-current{{end}}"
