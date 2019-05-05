@@ -1,0 +1,35 @@
+baseURL = "https://hakse.netlify.com/"
+languageCode = "en-us"
+title = "Hugo: A Kitchen Sink Example"
+
+assetDir = "assets" # default value
+theme = ["kitchen"]
+
+pygmentsCodeFencesGuessSyntax = true
+pygmentsCodeFences = true
+
+pygmentsUseClassic = false  
+pygmentsUseClasses = false
+
+sectionPagesMenu = "main"
+
+
+
+
+
+
+
+
+
+
+
+
+
+[params]
+
+[params.scss]
+  primary = "#216678"
+
+[[params.social]]
+  url = "https://github.com/pointyfar/hugo-kitchen-sink"
+  label = "GitHub"
