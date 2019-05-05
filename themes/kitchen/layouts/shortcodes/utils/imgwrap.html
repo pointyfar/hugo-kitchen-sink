@@ -1,0 +1,14 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <figure>
+          {{.Inner | markdownify }}
+          {{ with .Get 0 }}
+          <figcaption>{{.}}</figcaption>
+          {{ end }}
+        </figure>
+      </div>
+    </div>
+  </article>
+</div>

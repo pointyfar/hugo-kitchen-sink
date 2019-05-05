@@ -1,0 +1,11 @@
+{{ if site.IsServer }}
+  <!-- Checks if running hugo server -->
+  <!-- Produce source maps, but skip minify and fingerprint -->
+  {{ $cssOpts := (dict "targetPath" "styles/main.css" "enableSourceMap" true ) }}
+  {{ $styles := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS $cssOpts }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+{{ else }}
+  {{ $cssOpts := (dict "targetPath" "styles/main.css" ) }}
+  {{ $styles := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS $cssOpts | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+{{ end }}

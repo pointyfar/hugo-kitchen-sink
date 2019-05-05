@@ -1,0 +1,18 @@
+<div class="navbar-item has-dropdown is-hoverable is-active">
+  <a class="navbar-link">
+    Menu
+  </a>
+  <div class="navbar-dropdown">
+    {{ $currentPage := . }}
+    {{ range site.Menus.main }}
+      <a class="navbar-item {{if $currentPage.IsMenuCurrent "main" .}} is-active is-menu-current{{else if ($currentPage.HasMenuCurrent "main" .) }} is-active has-menu-current{{end}}"
+         href="{{.URL}}">
+        {{.Name}}
+      </a>
+    {{ end }}
+    <hr class="navbar-divider">
+    {{ range site.Params.social }}
+      <a class="navbar-item" href="{{ .url }}">{{.label}}</a>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+  {{- partial "head.html" . -}}
+  <body class="hakse has-navbar-fixed-top">
+    {{- partial "header.html" . -}}
+    <section class="section">
+      <div class="container">
+        <main class="main-container">
+          <div class="columns">
+            <div class="column is-9">
+              {{- block "main" . }}{{- end }}
+            </div>
+            <div class="column is-3">
+                <div class="js-toc is-position-fixed" style="top: 8rem">
+                </div>
+
+            </div>
+          </div>
+              
+        </main>
+      </div>
+    </section>
+    {{- partial "footer.html" . -}}
+  </body>
+</html>

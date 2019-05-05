@@ -1,0 +1,9 @@
+{{- $file := .Get "file" -}}
+{{- $theme := .Get "theme" | default "/themes/kitchen/" -}}
+{{- $theme = cond (eq $theme "~") "" $theme -}}
+{{- if eq (.Get "markdown") "true" -}}
+  {{ print $theme $file  | readFile | markdownify }}
+{{- else -}}
+  {{ print $theme $file  | readFile | htmlUnescape | safeHTML }}
+{{- end -}}
+

@@ -1,0 +1,6 @@
+ol.toc-list {
+  list-style: none;
+  .is-active-link::before {
+    background-color: $primary
+  }
+}

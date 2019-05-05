@@ -1,0 +1,12 @@
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
+
+{{ with site.Params.scss.primary }} 
+$primary: {{.}};
+$link: $primary;
+{{ end }}
+
+
+@import "bulma/bulma";
+@import "custom.scss";
+@import "tocbot.scss";

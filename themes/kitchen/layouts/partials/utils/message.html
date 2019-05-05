@@ -1,0 +1,18 @@
+<article class="message is-dark">
+  <div class="message-header">
+    <p>{{with .Params.message}}{{.}}{{else}}Relevant Docs{{end}}</p>
+  </div>
+  <div class="message-body">
+    {{ with .Params.docs }}
+    {{ if (in (printf "%#T" .) "[]" )}}
+    <ul>
+    {{ range . }}
+    <li><a href="{{. | safeHTMLAttr}}">{{.}}</a></li>
+    {{ end }}
+    </ul>
+    {{ else }}
+    <a href="{{. | safeHTMLAttr}}">{{.}}</a>
+    {{ end }}
+    {{ end }}
+  </div>
+</article>

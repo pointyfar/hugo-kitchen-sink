@@ -1,0 +1,3 @@
+{{ $sections := slice}}
+{{ range site.Sections }}{{ $sections = $sections | append .Title }}{{ end }}
+{{ delimit $sections ", "}}

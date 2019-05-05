@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="hero is-primary is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="subtitle">
+        <!-- Breadcrumb nav code modified from Hugo Docs -->
+        {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+      </h2>
+      <h1 class="title">
+        {{.Title}}
+      </h1>
+    </div>
+  </div>
+</section>
+<div class="content main-example-content">
+{{ partial "utils/message.html" . }}
+{{.Content}}
+</div>
+{{ end }}
+
+{{ define "breadcrumbnav" }}
+  {{ if .p1.Parent }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+  {{ else if not .p1.IsHome }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+  {{ end }}
+  {{ if not (eq .p1 .p2) }}
+  <span class="crumb">
+    <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a> &#9656;
+  </span>
+  {{ end }}
+{{ end }}

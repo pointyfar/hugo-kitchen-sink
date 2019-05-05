@@ -1,0 +1,32 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=3.0, user-scalable=yes">
+<meta name="referrer" content="same-origin">
+
+{{ if (.Params.description) }}
+<meta name="description" content="{{.Params.description}}">
+{{ else }}
+<meta name="description" content="{{.Site.Params.description}}">
+{{ end }}
+
+{{ if .Site.Copyright }}
+<meta name="copyright" content="{{ .Site.Copyright }}">
+{{ end }}
+
+{{ if eq .Kind "home" }}
+<title>{{.Site.Title}}</title>
+{{ else }}
+<title>{{ .Title }}</title>
+{{ end }}
+
+
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org/",
+  "@type": "Organization",
+  "url": "{{.Site.BaseURL}}"
+  }
+</script>
+
+
+
+
+
